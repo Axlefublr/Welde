@@ -47,9 +47,13 @@ public class CounterManager
 	{
 		int amount = Read();
 		string sticks = "0";
-		if (amount >= 1)
+		if (amount != 0)
 		{
 			sticks = new(Settings.ShowCountChr, amount);
+		}
+		if (amount < 0)
+		{
+			sticks = "-" + sticks;
 		}
 		return sticks;
 	}

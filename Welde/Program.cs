@@ -9,6 +9,8 @@ internal class Program
 		{
 			return 666;
 		}
+		CounterManager cm = new();
+		ArgumentHandler.CallCommand(cm, args);
 		return 0;
 	}
 }

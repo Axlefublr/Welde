@@ -23,7 +23,7 @@ public class CounterManager
 	{
 		string message = "Current count is: ";
 		message += GetSticks();
-		Console.Write(message);
+		Console.WriteLine(message);
 	}
 
 	public void Reset() => Write(0);

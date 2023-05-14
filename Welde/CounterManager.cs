@@ -44,9 +44,8 @@ public class CounterManager
 	private string GetSticks()
 	{
 		int amount = Read();
-		char countChr = '|';
 		string message = "Current count is: ";
-		message += new string(countChr, amount);
+		message += new string(Settings.ShowCountChr, amount);
 		return message;
 	}
 

@@ -10,6 +10,13 @@ public class CounterManager
 
 	private readonly string counterFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "counter.txt");
 
+	public void Increment()
+	{
+		int counter = Read();
+		counter++;
+		Write(counter);
+	}
+
 	private int Read()
 	{
 		string text = File.ReadAllText(counterFile);

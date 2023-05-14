@@ -1,6 +1,6 @@
 namespace Welde;
 
-internal class ArgumentHandler
+internal static class ArgumentHandler
 {
 
 	internal static bool ValidateArguments(string[] args)
@@ -20,6 +20,21 @@ internal class ArgumentHandler
 			case "show":
 				cm.Show();
 				break;
+			case "inc":
+			case "increment":
+				cm.Increment();
+				cm.Show();
+				break;
+			case "reset":
+				cm.Reset();
+				cm.Show();
+				break;
+			case "set":
+				cm.Set(args[1]);
+				break;
+		}
+	}
+
 	internal static int ParseStringIntoInt(string text)
 	{
 		bool success = int.TryParse(text, out int number);

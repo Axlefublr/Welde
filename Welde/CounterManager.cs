@@ -19,6 +19,8 @@ public class CounterManager
 
 	public void Reset() => Write(0);
 
+	public void Set(int newCounter) => Write(newCounter);
+
 	private int Read()
 	{
 		string text = File.ReadAllText(counterFile);
@@ -30,10 +32,7 @@ public class CounterManager
 		return result;
 	}
 
-	private void Write(int currentCount)
-	{
-		File.WriteAllText(counterFile, currentCount.ToString());
-	}
+	private void Write(int currentCount) => File.WriteAllText(counterFile, currentCount.ToString());
 
 	private void EnsureCounterFileExists()
 	{

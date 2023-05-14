@@ -46,7 +46,11 @@ public class CounterManager
 	private string GetSticks()
 	{
 		int amount = Read();
-		string sticks = new(Settings.ShowCountChr, amount);
+		string sticks = "0";
+		if (amount >= 1)
+		{
+			sticks = new(Settings.ShowCountChr, amount);
+		}
 		return sticks;
 	}
 

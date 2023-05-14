@@ -15,4 +15,9 @@ public class CounterManager
 		}
 		return result;
 	}
+
+	private void Write(int currentCount)
+	{
+		File.WriteAllText(counterFile, currentCount.ToString());
+	}
 }

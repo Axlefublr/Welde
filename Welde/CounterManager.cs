@@ -17,6 +17,8 @@ public class CounterManager
 		Write(counter);
 	}
 
+	public void Reset() => Write(0);
+
 	private int Read()
 	{
 		string text = File.ReadAllText(counterFile);

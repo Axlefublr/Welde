@@ -5,7 +5,7 @@ public class CounterManager
 
 	public CounterManager()
 	{
-		MakeSureCounterFileExists();
+		EnsureCounterFileExists();
 	}
 
 	private readonly string counterFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "counter.txt");
@@ -35,7 +35,7 @@ public class CounterManager
 		File.WriteAllText(counterFile, currentCount.ToString());
 	}
 
-	private void MakeSureCounterFileExists()
+	private void EnsureCounterFileExists()
 	{
 		if (!File.Exists(counterFile))
 		{

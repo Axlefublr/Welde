@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Welde;
 
 public class CounterManager
@@ -17,6 +19,11 @@ public class CounterManager
 		Write(counter);
 	}
 
+	public void Show()
+	{
+		Console.Write();
+	}
+
 	public void Reset() => Write(0);
 
 	public void Set(int newCounter) => Write(newCounter);
@@ -33,6 +40,15 @@ public class CounterManager
 	}
 
 	private void Write(int currentCount) => File.WriteAllText(counterFile, currentCount.ToString());
+
+	private string GetSticks()
+	{
+		int amount = Read();
+		char countChr = '|';
+		string message = "Current count is: ";
+		message += new string(countChr, amount);
+		return message;
+	}
 
 	private void EnsureCounterFileExists()
 	{

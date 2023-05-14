@@ -21,7 +21,9 @@ public class CounterManager
 
 	public void Show()
 	{
-		Console.Write();
+		string message = "Current count is: ";
+		message += GetSticks();
+		Console.Write(message);
 	}
 
 	public void Reset() => Write(0);
@@ -44,9 +46,8 @@ public class CounterManager
 	private string GetSticks()
 	{
 		int amount = Read();
-		string message = "Current count is: ";
-		message += new string(Settings.ShowCountChr, amount);
-		return message;
+		string sticks = new(Settings.ShowCountChr, amount);
+		return sticks;
 	}
 
 	private void EnsureCounterFileExists()

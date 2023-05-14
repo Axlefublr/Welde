@@ -28,7 +28,13 @@ public class CounterManager
 
 	public void Reset() => Write(0);
 
-	public void Set(int newCounter) => Write(newCounter);
+	public void Set(string newCounter)
+	{
+		int number = ArgumentHandler.ParseStringIntoInt(newCounter);
+		Set(number);
+	}
+
+	private void Set(int newCounter) => Write(newCounter);
 
 	private int Read()
 	{

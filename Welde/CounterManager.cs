@@ -3,6 +3,11 @@ namespace Welde;
 public class CounterManager
 {
 
+	public CounterManager()
+	{
+		MakeSureCounterFileExists();
+	}
+
 	private readonly string counterFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "counter.txt");
 
 	private int Read()
@@ -19,5 +24,13 @@ public class CounterManager
 	private void Write(int currentCount)
 	{
 		File.WriteAllText(counterFile, currentCount.ToString());
+	}
+
+	private void MakeSureCounterFileExists()
+	{
+		if (!File.Exists(counterFile))
+		{
+			File.WriteAllText(counterFile, "0");
+		}
 	}
 }

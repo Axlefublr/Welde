@@ -20,6 +20,14 @@ internal class ArgumentHandler
 			case "show":
 				cm.Show();
 				break;
+	internal static int ParseStringIntoInt(string text)
+	{
+		bool success = int.TryParse(text, out int number);
+		if (!success)
+		{
+			throw new FormatException("Can't convert string into int");
 		}
+		return number;
 	}
+
 }

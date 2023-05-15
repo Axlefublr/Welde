@@ -37,7 +37,7 @@ internal class Eater
 		}
 	}
 
-	private string GetDateNowString() => DateTime.Now.ToString("yyyy.MM.dd");
+	private static string GetDateNowString() => DateTime.Now.ToString("yyyy.MM.dd");
 
 	private DateTime ParseDateFileIntoDateTime()
 	{
@@ -49,13 +49,13 @@ internal class Eater
 		return parsedDate;
 	}
 
-	private int GetDiffOfDays(DateTime prevDate)
+	private static int GetDiffOfDays(DateTime prevDate)
 	{
 		TimeSpan difference = prevDate - DateTime.Now;
 		int daysDifference = Math.Abs((int)difference.TotalDays);
 		return daysDifference;
 	}
 
-	private string Read() => File.ReadAllText(dateFile);
+	private string Read() => File.ReadAllText(dateFile).Trim();
 
 }

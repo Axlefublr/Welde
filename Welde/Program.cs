@@ -10,7 +10,10 @@ internal class Program
 			return 666;
 		}
 		CounterManager cm = new();
+		Eater yummy = new(cm);
+		yummy.CheckEat();
 		ArgumentHandler.CallCommand(cm, args);
+
 		return 0;
 	}
 }

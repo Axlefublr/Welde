@@ -15,12 +15,16 @@ internal class Eater
 
 	internal void CheckEat()
 	{
-		bool isNextDay = IsNextDay();
-		if (!isNextDay)
+		DateTime dt = ParseDateFileIntoDateTime();
+		int daysDiff = GetDiffOfDays(dt);
+		if (daysDiff <= 0)
 		{
 			return;
 		}
-		cm.Eat();
+		for (int i = 0; i < daysDiff; i++)
+		{
+			cm.Eat();
+		}
 	}
 
 	private readonly string dateFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "date.txt");
@@ -34,17 +38,6 @@ internal class Eater
 	}
 
 	private string GetDateNowString() => DateTime.Now.ToString("yyyy.MM.dd");
-
-	private bool IsNextDay()
-	{
-		DateTime dt = ParseDateFileIntoDateTime();
-		int daysDiff = GetDiffOfDays(dt);
-		if (daysDiff >= 1)
-		{
-			return true;
-		}
-		return false;
-	}
 
 	private DateTime ParseDateFileIntoDateTime()
 	{

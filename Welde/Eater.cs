@@ -25,7 +25,10 @@ internal class Eater
 		{
 			cm.Eat();
 		}
+		Write();
 	}
+
+	private void Write() => File.WriteAllText(dateFile, GetDateNowString());
 
 	private readonly string dateFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "date.txt");
 

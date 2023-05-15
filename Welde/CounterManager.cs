@@ -1,3 +1,4 @@
+using System.Drawing;
 using System.Text;
 
 namespace Welde;
@@ -22,8 +23,9 @@ public class CounterManager
 	public void Show()
 	{
 		string message = "Current count is: ";
-		message += GetSticks();
-		Console.WriteLine(message);
+		Console.Write(message);
+		ColorSticks();
+		Console.WriteLine(GetSticks());
 	}
 
 	public void Reset() => Write(0);
@@ -60,11 +62,20 @@ public class CounterManager
 		{
 			sticks = new(Settings.ShowCountChr, Math.Abs(amount));
 		}
-		if (amount < 0)
-		{
-			sticks = "-" + sticks;
-		}
 		return sticks;
+	}
+
+	private void ColorSticks()
+	{
+		int amount = Read();
+		if (amount > 0)
+		{
+			Console.ForegroundColor = ConsoleColor.Green;
+		}
+		else if (amount < 0)
+		{
+			Console.ForegroundColor = ConsoleColor.Red;
+		}
 	}
 
 	private void EnsureCounterFileExists()

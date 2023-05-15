@@ -9,7 +9,11 @@ internal class Eater
 	{
 		if (!File.Exists(dateFile))
 		{
-			File.WriteAllText(dateFile, "0");
+			File.WriteAllText(dateFile, GetDateNowString());
 		}
+	}
+
+	private string GetDateNowString() => DateTime.Now.ToString("yyyy.MM.dd");
+
 	}
 }

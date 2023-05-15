@@ -58,7 +58,7 @@ public class CounterManager
 		string sticks = "0";
 		if (amount != 0)
 		{
-			sticks = new(Settings.ShowCountChr, amount);
+			sticks = new(Settings.ShowCountChr, Math.Abs(amount));
 		}
 		if (amount < 0)
 		{

@@ -31,6 +31,7 @@ internal static class ArgumentHandler
 				break;
 			case "set":
 				cm.Set(args[1]);
+				cm.Show();
 				break;
 		}
 	}

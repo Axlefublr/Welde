@@ -21,10 +21,7 @@ internal class Eater
 		{
 			return;
 		}
-		for (int i = 0; i < daysDiff; i++)
-		{
-			cm.Eat();
-		}
+		cm.Eat(daysDiff);
 		Write();
 	}
 

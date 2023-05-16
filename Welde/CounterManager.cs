@@ -36,10 +36,10 @@ public class CounterManager
 		Set(number);
 	}
 
-	public void Eat()
+	public void Eat(int count)
 	{
 		int currentCount = Read();
-		currentCount -= Settings.DecrementEveryDay;
+		currentCount -= Settings.DecrementEveryDay * count;
 		Set(currentCount);
 	}
 
